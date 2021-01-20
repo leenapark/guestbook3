@@ -66,7 +66,7 @@ public class GuestBookController {
 			
 			return "deleteForm";
 		}
-		// 모야
+		
 		// 삭제
 		@RequestMapping(value="/delete", method= {RequestMethod.GET, RequestMethod.POST})
 		public String delete(@RequestParam("no") int no, @RequestParam("password") String pass ) {
