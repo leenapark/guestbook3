@@ -32,18 +32,18 @@ public class GuestBookController {
 			System.out.println("list");
 			
 			GuestDao guestDao = new GuestDao();
-			List<GuestVo> guestVo = guestDao.addList();
+			List<GuestVo> guestList = guestDao.addList();
 			
-			System.out.println("addList: " + guestVo);
+			System.out.println("addList: " + guestList);
 			
-			model.addAttribute("addList", guestVo);
+			model.addAttribute("addList", guestList);
 			
 			return "addList";
 		}
 		
 		// 등록
 		@RequestMapping(value="/add", method={RequestMethod.GET, RequestMethod.POST})
-		public String add(@RequestParam("name") String name, @RequestParam("password") String pass, @RequestParam("content") String content, Model model) {
+		public String add(@RequestParam("name") String name, @RequestParam("password") String pass, @RequestParam("content") String content) {
 			System.out.println("add");
 			System.out.println(name + ", " + pass + ", " + content);
 			
@@ -51,18 +51,16 @@ public class GuestBookController {
 			GuestDao guestDao = new GuestDao();
 			guestDao.guestInsert(guestVo);
 			
-			List<GuestVo> addList = guestDao.addList();
-			model.addAttribute("addList", addList);
 			
 			return "redirect:/gbc/list";
 		}
 		
 		// 삭제 - 비밀번호 확인
 		@RequestMapping(value="/dForm", method= {RequestMethod.GET, RequestMethod.POST})
-		public String dForm(@RequestParam("no") int no){
+		public String dForm(){
 			System.out.println("dForm");
 			
-			System.out.println(no);
+			//System.out.println(no);
 			
 			return "deleteForm";
 		}
