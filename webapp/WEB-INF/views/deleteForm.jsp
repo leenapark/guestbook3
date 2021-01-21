@@ -11,7 +11,7 @@
 <body>
 	<h1>비밀번호 확인</h1>
 
-	<c:if test="${result == fail}">
+	<c:if test="${param.result != null}">
 		<p>비밀 번호가 틀렸습니다. 다시 입력해주세요.</p>
 	</c:if>
 	
