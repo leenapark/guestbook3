@@ -85,7 +85,7 @@ public class GuestBookController {
 				System.out.println("삭제 실패");
 				
 				
-				return "redirect:/gbc/dForm?no="+no;
+				return "redirect:/gbc/dForm?result=fail&no="+no;
 			}
 			
 			return "";
